@@ -1,0 +1,1390 @@
+{
+	"info": {
+		"_postman_id": "ae2f7bfc-c88f-4f8b-b46f-beaee1d58006",
+		"name": "API MiTienditaOnline",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26689197"
+	},
+	"item": [
+		{
+			"name": "CrearPrimeroUsuarios",
+			"item": [
+				{
+					"name": "CrearUsuarioOperador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCliente\": null,\r\n  \"correo_electronico\": \"operador1@gmail.com\",\r\n  \"nombre_completo\": \"Operador Uno\",\r\n  \"password\": \"password123\",\r\n  \"telefono\": \"987344444\",\r\n  \"fecha_nacimiento\": \"1986-02-01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearUsuarioCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCliente\": 1,\r\n  \"correo_electronico\": null,\r\n  \"nombre_completo\": \"Carlos Felipe\",\r\n  \"password\": \"password123\",\r\n  \"telefono\": \"23659856\",\r\n  \"fecha_nacimiento\": \"2000-12-12\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Se realiza la creación de los primeros Usuarios, ya que solo hay 1 en la base de datos y se eliminara y desactivara porque la Contraseña no esta encriptda.\n\nLos nuevos usuarios ya tendran encriptada la contraseña."
+		},
+		{
+			"name": "IniciarSesion",
+			"item": [
+				{
+					"name": "IniciarSesionComoOperador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"correo_electronico\": \"operador1@gmail.com\",\r\n  \"password\": \"password123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IniciarSesionComoCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"correo_electronico\": \"cliente1@gmail.com\",\r\n  \"password\": \"password123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Actualizar el token en apartado Authorization ya se que se vence cada 24 horas y queda el token anterior."
+		},
+		{
+			"name": "TablaProductos",
+			"item": [
+				{
+					"name": "ObtenerProductos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerProductosconStock",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/productos/con-stock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos",
+								"con-stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerProductoPorId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/productos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearProducto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Alexa\",\r\n  \"marca\": \"Amazon\",\r\n  \"codigo\": \"AL123\",\r\n  \"stock\": 100,\r\n  \"precio\": 400.00,\r\n  \"foto\": \"imagenes/alexa.jpg\",\r\n  \"idCategoriaProducto\": 1,\r\n  \"idUsuario\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/productos/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarProducto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Alexa Actualizada\",\r\n  \"marca\": \"Amazon\",\r\n  \"codigo\": \"AL123\",\r\n  \"stock\": 10,\r\n  \"precio\": 450.00,\r\n  \"foto\": \"imagenes/alexa_updated.jpg\",\r\n  \"idCategoriaProducto\": 1,\r\n  \"idUsuario\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/productos/actualizar/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos",
+								"actualizar",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InactivarProducto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/productos/inactivar/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos",
+								"inactivar",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarProducto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/productos/eliminar/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos",
+								"eliminar",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TablaCategoriasProductos",
+			"item": [
+				{
+					"name": "ObtenerCategoriasProductos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/categoriasproductos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"categoriasproductos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerCategoriaPorId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/categoriasproductos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"categoriasproductos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerCategoriaPorNombre",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/categoriasproductos/obtener/Ropa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"categoriasproductos",
+								"obtener",
+								"Ropa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearCategoria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJGxJaFZOZFd2cXg1WkJWS2d4Z3hSNHU2R1Quc1IvN21vbTUzQWFjd3lMT09LS1EueGV5aHNLIiwiaWF0IjoxNzM0OTA4NTE3LCJleHAiOjE3MzQ5OTQ5MTd9.ORqp65w80d-Sy4IQHINIdNqm9DcRJYYL9Y2POgl8y3A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Zapatos\",\r\n  \"idUsuario\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/categoriasproductos/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"categoriasproductos",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCategoria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Zapatos Modernos\",\r\n  \"idUsuario\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/categoriasproductos/actualizar/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"categoriasproductos",
+								"actualizar",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InactivarCategoria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/categoriasproductos/inactivar/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"categoriasproductos",
+								"inactivar",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarCategoria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/categoriasproductos/eliminar/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"categoriasproductos",
+								"eliminar",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TablaEstados",
+			"item": [
+				{
+					"name": "ObtenerEstados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/estados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"estados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerEstadoPorId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/estados/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"estados",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerEstadoPorNombre",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/estados/obtener/Inactivo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"estados",
+								"obtener",
+								"Inactivo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearEstado",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"EstadoPrueba\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/estados/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"estados",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarEstado",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"CategoriadePruebaActualizada\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/estados/actualizar/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"estados",
+								"actualizar",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarEstado",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/estados/eliminar/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"estados",
+								"eliminar",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TablaClientes",
+			"item": [
+				{
+					"name": "ObtenerClientes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerClientePorId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/clientes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerClientePorCorreo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/clientes/obtener/cliente1@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								"obtener",
+								"cliente1@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearCliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJGxJaFZOZFd2cXg1WkJWS2d4Z3hSNHU2R1Quc1IvN21vbTUzQWFjd3lMT09LS1EueGV5aHNLIiwiaWF0IjoxNzM0OTA4NTE3LCJleHAiOjE3MzQ5OTQ5MTd9.ORqp65w80d-Sy4IQHINIdNqm9DcRJYYL9Y2POgl8y3A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"razon_social\": \"Empresa D S.A\",\r\n    \"nombre_comercial\": \"Tienda D\",\r\n    \"direccion_entrega\": \"Calle 4, Guatemala\",\r\n    \"correo_electronico\": \"cliente4@gmail.com\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/clientes/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCliente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"razon_social\": \"Empresa 4 S.A\",\r\n    \"nombre_comercial\": \"Tienda D Actual\",\r\n    \"direccion_entrega\": \"Calle 13, Sacatepequez\",\r\n    \"correo_electronico\": \"cliente4@gmail.com\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/clientes/actualizar/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								"actualizar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarCliente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/clientes/eliminar/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"clientes",
+								"eliminar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TablasUsuarios",
+			"item": [
+				{
+					"name": "ObtenerUsuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUsuarioPorId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUsuarioPorCorreo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/obtener/operador1@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"obtener",
+								"operador1@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCliente\": null,\r\n  \"correo_electronico\": \"operador1@gmail.com\",\r\n  \"nombre_completo\": \"Operador Uno\",\r\n  \"password\": \"password123\",\r\n  \"telefono\": \"12345678\",\r\n  \"fecha_nacimiento\": \"1980-02-01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/actualizar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"actualizar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InactivarUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/inactivar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"inactivar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/eliminar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"eliminar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TablasOrdenyOrdenDetalles",
+			"item": [
+				{
+					"name": "CrearOrdenconDetalle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJGxJaFZOZFd2cXg1WkJWS2d4Z3hSNHU2R1Quc1IvN21vbTUzQWFjd3lMT09LS1EueGV5aHNLIiwiaWF0IjoxNzM0OTA4NTE3LCJleHAiOjE3MzQ5OTQ5MTd9.ORqp65w80d-Sy4IQHINIdNqm9DcRJYYL9Y2POgl8y3A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre_completo\": \"Juan Pérez\",\r\n  \"direccion\": \"Calle Ficticia 123\",\r\n  \"telefono\": \"5551234567\",\r\n  \"correo_electronico\": \"juanperez@gmail.com\",\r\n  \"fecha_entrega\": \"2024-12-30\",\r\n  \"idUsuario\": 2,\r\n  \"detalles\": \"[{\\\"cantidad\\\": 2, \\\"precio\\\": 20.5, \\\"idProducto\\\": 1}, {\\\"cantidad\\\": 1, \\\"precio\\\": 15.0, \\\"idProducto\\\": 2}]\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/ordenesdetalles/crear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ordenesdetalles",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerOrdenesConDetalles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/ordenesdetalles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ordenesdetalles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerOrdenconDetallePorId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/ordenesdetalles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ordenesdetalles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarOrdenconDetalle",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre_completo\": \"Juan Pérez\",\r\n  \"direccion\": \"Calle No Ficticia\",\r\n  \"telefono\": \"5551234567\",\r\n  \"correo_electronico\": \"juanperez@gmail.com\",\r\n  \"fecha_entrega\": \"2024-12-30\",\r\n  \"idUsuario\": 2,\r\n  \"detalles\": \"[{\\\"cantidad\\\": 3, \\\"precio\\\": 20.5, \\\"idProducto\\\": 1}, {\\\"cantidad\\\": 1, \\\"precio\\\": 15.0, \\\"idProducto\\\": 2}]\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/ordenesdetalles/actualizar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ordenesdetalles",
+								"actualizar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InactivarOrden",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuario\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/ordenesdetalles/inactivar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ordenesdetalles",
+								"inactivar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarOrdenconDetalle",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiY29ycmVvX2VsZWN0cm9uaWNvIjoib3BlcmFkb3IxQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJtZXVZRUthaUVmMXBZT2thUXRMZ3U0NHZWdS82YXpzMFFWdTgvcVBidlFGaDQ4dVlMWFRDIiwiaWF0IjoxNzM0OTEzMzUwLCJleHAiOjE3MzQ5OTk3NTB9.Hx9o6eFcFBN42Qu6pT_FZsGkAEq3RpIqjd1w6OPQfhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuario\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/ordenesdetalles/eliminar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ordenesdetalles",
+								"eliminar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "No hay ordenes con detalles creadas"
+		}
+	]
+}
